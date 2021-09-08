@@ -1,0 +1,144 @@
+.nav{
+    position: fixed;
+    z-index: 9;
+    width: 100%;
+    height: 70px;
+    background: transparent;
+}
+.nav-container{
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-logo{
+    cursor: pointer;
+}
+.mobile-icon{
+    display: none;
+    cursor: pointer;
+}
+.nav-menu,
+.nav-item{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.nav-menu{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+}
+.nav-item{
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+}
+.item-link{
+    color: #fff;
+    height: auto;
+    text-decoration: none;
+    padding: 0 1rem;
+    cursor: pointer;
+}
+.item-link:hover{
+    text-shadow: #fff 0px 0px 2px;
+}
+.active{
+    color: var(--primary);
+    text-shadow: #fff 0px 0px 2px;
+}
+
+.nav-active{
+    background: rgba(0, 0, 0, 0.9);
+    animation-name: onShow;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+
+@keyframes onShow{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@media(max-width: 800px){
+    .mobile-icon{
+        display: block;
+        color: #fff;
+        outline: none;
+    }
+    .nav-menu{
+        display: none;
+    }
+    ul[aria-label="true"],
+    ul[aria-label="false"]{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 10px 0;
+        height: auto;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        animation-name: menu;
+        animation-duration: .5s;
+        animation-iteration-count: 1;
+
+    }
+    .menu-close::after{
+        content: '\e5cd';
+        font-family: 'Material Icons Round';
+        font-size: 24px;
+        position: absolute;
+        color: #fff;
+        top: 25px;
+        right: 24px;
+        cursor: pointer;
+    }
+    ul[aria-label="true"] .nav-item,
+    ul[aria-label="false"] .nav-item{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        height: auto;
+        padding: 20px 0;
+    }
+    ul[aria-label="false"]{
+        animation-name: hidemenu;
+        animation-duration: .5s;
+        animation-iteration-count: 1;
+    }
+}
+
+@keyframes menu {
+    from{
+        top: -100%;
+    }
+    to{
+        top: 0;
+    }
+}
+
+@keyframes hidemenu {
+    from{
+        top: 0;
+    }
+    to{
+        top: -100%;
+    }
+}
+@media(min-width:801px){
+    .nav-menu{
+        display: block !important;
+    }
+}
