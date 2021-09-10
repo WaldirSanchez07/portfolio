@@ -8,7 +8,7 @@ export default function Contact() {
                 <div className="section-title">
                     <h2 className="title">Contact</h2>
                 </div>
-                <p className="text-center">Below I show some of my projects</p>
+                <p className="text-center">Here are the means to contact me</p>
                 <div className="contact-container">
                     <div className="contact-box">
                         <i className="fas fa-envelope"></i>
